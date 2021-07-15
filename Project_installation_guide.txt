@@ -1,0 +1,23 @@
+git init  (в папке в который будет проект)
+git clone https://github.com/Kene881/AliMangaLib.git находясь в папке domains в консоли
+При завершении устоновки проекта в папку domains - cd ваш путь/domains/AliMangaLib
+1)composer install (должна появится папка vendor и comoser. файлы)
+2)php artisan key:generate (если выходит ошибка клонируйте файл .env.example и переименуйте его в .env.)
+3)php artisan migrate:fresh
+4)У каждого свои данные в mailtrap, в файле .env. поменять данные на свои
+
+
+Как создавать ветки
+1)git checkout -b <name> (checkout -b создаёт ветку в локальном репозитории и переключается на неё) (git branch чтобы посмотреть текущую ветку в локальном репозитории)
+2)git remote add <name> https://github.com/Kene881/AliMangaLib.git
+3)git push <name> (там выйдет команда что с setup origin stream скопируйте её)
+
+
+Как добавить данные в ветку
+1)git add .
+2)git commit -m "Description of commit"
+3)git push   ВАЖНО А ТО НЕ НИЧЕГО СОХРАНИТСЯ !!!!!!!
+
+Как работать с ветками в удалённом репозитории
+1)git fetch
+2)git checkout <name>
