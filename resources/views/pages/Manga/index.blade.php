@@ -1,5 +1,30 @@
 <x-layouts.app title="{{ __('Manga') }}">
     <a href="{{ route('manga.create') }}" class="btn btn-primary">Add manga</a>
+
+    <form action="{{ route('filter') }}" method="post">
+        @csrf
+        <div class="mb-3">
+            <label for="genre_id" class="form-label">{{ __('Genre') }}</label>
+            <select class="form-select @error('genre_id') is-invalid @enderror" name="genre_id" id="genre_id">
+
+                <option value="all">{{ __('All manga') }}</option>
+
+                @foreach($genres as $genre)
+                    <option value="{{ $genre->id }}">
+                        {{ $genre->name }}
+                    </option>
+                @endforeach
+            </select>
+            @error('genre_id')
+            <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+        </div>
+
+        <button class="btn btn-primary">
+            {{ __('Filter') }}
+        </button>
+    </form>
+
     @if($mangas->isEmpty())
 
         <div>

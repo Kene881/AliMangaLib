@@ -15,9 +15,11 @@ class MangaController extends Controller
     {
         $mangas = Manga::query()
             ->get();
+        $genres = Genre::all();
 
         return view('pages.manga.index', [
-            'mangas' => $mangas
+            'mangas' => $mangas,
+            'genres' => $genres
         ]);
     }
 
