@@ -5,15 +5,13 @@ namespace App\Models\Manga;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Manga extends Model
+class Genre extends Model
 {
-    use HasFactory;
-
     protected $fillable = [
-        'title', 'description', 'image_path', 'genre_id'
+        'name'
     ];
 
-    function genre(){
-        return $this->belongsTo(Genre::class);
+    function mangas(){
+        return $this->hasMany(Manga::class);
     }
 }

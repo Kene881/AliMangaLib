@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Manga;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Manga\MangaRequest;
+use App\Models\Manga\Genre;
 use App\Models\Manga\Manga;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -22,7 +23,11 @@ class MangaController extends Controller
 
     public function create()
     {
-        return view('pages.manga.form');
+        $genres = Genre::all();
+
+        return view('pages.manga.form', [
+            'genres' => $genres
+        ]);
     }
 
     public function store(MangaRequest $request)
@@ -30,6 +35,7 @@ class MangaController extends Controller
         $manga = Manga::query()
             ->create($request->validated());
 
+        $manga->genre()->associate($request->genre_id);
         $this->uploadImage($manga, $request);
         $manga->save();
 
@@ -45,17 +51,23 @@ class MangaController extends Controller
 
     public function edit(Manga $manga)
     {
+        $genres = Genre::all();
+
         return view('pages.manga.form', [
-            'manga' => $manga
+            'manga' => $manga,
+            'genres' => $genres
         ]);
     }
 
     public function update(MangaRequest $request, Manga $manga)
     {
-        $data = $request->validated();
-
-        $manga->update($data);
+//        $data = $request->validated();
+//
+//        $manga->update($data);
+        $manga->fill($request->validated());
+        $manga->genre()->associate($request->genre_id);
         $this->uploadImage($manga, $request);
+        $manga->save();
 
         return redirect()->route('manga.show', $manga);
     }

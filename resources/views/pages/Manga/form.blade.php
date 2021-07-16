@@ -30,6 +30,20 @@ $manga = $manga ?? null;
                 </div>
 
                 <div class="mb-3">
+                    <label for="genre_id" class="form-label">{{ __('Genre') }}</label>
+                    <select class="form-select @error('genre_id') is-invalid @enderror" name="genre_id" id="genre_id">
+                        @foreach($genres as $genre)
+                            <option value="{{ $genre->id }}" {{ old('genre_id', $manga->genre_id ?? null) == $genre->id ? 'selected' : '' }}>
+                                {{ $genre->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                    @error('genre_id')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div class="mb-3">
                     <label for="image_path" class="form-label">{{ __('Image') }}</label>
                     <input accept="image/*" class="form-control @error('image_path') is-invalid @enderror" type="file" id="image_path" name="image_path">
                     @error('image_path')
