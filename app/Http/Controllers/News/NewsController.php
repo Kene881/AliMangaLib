@@ -26,36 +26,36 @@ class NewsController extends Controller
 
     public function store(NewsRequest $request)
     {
-        $one_news = News::query()
+        $news = News::query()
             ->create($request->validated());
 
-        return redirect()->route('news.news.show', $one_news);
+        return redirect()->route('news.news.show', $news);
     }
 
-    public function show(News $one_news)
+    public function show(News $news)
     {
         return view('news.news.show', [
-            'one_news' => $one_news
+            'news' => $news
         ]);
     }
 
-    public function edit(News $one_news)
+    public function edit(News $news)
     {
         return view('news.news.form', [
-            'one_news' => $one_news,
+            'news' => $news,
         ]);
     }
 
-    public function update(NewsRequest $request, News $one_news)
+    public function update(NewsRequest $request, News $news)
     {
-        $one_news->update($request->validated());
+        $news->update($request->validated());
 
-        return redirect()->route('news.news.show', $one_news);
+        return redirect()->route('news.news.show', $news);
     }
 
-    public function destroy(News $one_news)
+    public function destroy(News $news)
     {
-        $one_news->delete();
+        $news->delete();
         return redirect()->route('news.news.index');
     }
 }

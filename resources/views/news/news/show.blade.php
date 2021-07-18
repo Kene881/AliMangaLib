@@ -1,5 +1,5 @@
-<x-layouts.app :title="$one_news->title">
+<x-layouts.app :title="$news->title">
 
-    {{ $one_news->description }}
+    {{ $news->description }}
 
 </x-layouts.app>
