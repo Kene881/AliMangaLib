@@ -32,6 +32,14 @@ class RouteServiceProvider extends ServiceProvider
                 ->prefix('news')
                 ->name('news.')
                 ->group(base_path('routes/news.php'));
+
+            Route::middleware('web')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/forum.php'));
+
+            
+            Route::middleware('web')
+                ->group(base_path('routes/manga.php'));
         });
     }
 
