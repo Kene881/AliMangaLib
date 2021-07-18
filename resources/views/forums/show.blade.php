@@ -13,7 +13,7 @@
 
 <p>{{ $forum->description }}</p>
 
-@can('update', $forum->user, $forum)
+@can('update', $forum)
 
 
 <a href="{{route('forums.edit', $forum)}}">Edit post</a>
@@ -24,7 +24,7 @@
     @csrf
     @method('delete')
 
-    @can('update', $forum->user, $forum)
+    @can('delete', $forum)
 
     <button>Delete forum</button>
     @endcan
