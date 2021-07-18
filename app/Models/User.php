@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use App\Models\ForumModels\Forum;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -27,4 +29,9 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    function forums(): HasMany {
+        return $this->hasMany(Forum::class);
+    }
+
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Profile\UserController;
+use App\Http\Controllers\ForumControllers\ForumController;
 use Illuminate\Support\Facades\Route;
 
 

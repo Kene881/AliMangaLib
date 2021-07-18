@@ -12,7 +12,7 @@ class RouteServiceProvider extends ServiceProvider
 {
     public const HOME = '/';
 
-    // protected $namespace = 'App\\Http\\Controllers';
+    //protected $namespace = 'App\\Http\\Controllers';
 
     public function boot()
     {
@@ -42,6 +42,7 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/manga.php'));
         });
     }
+
 
     protected function configureRateLimiting()
     {
