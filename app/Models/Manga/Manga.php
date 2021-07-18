@@ -16,4 +16,8 @@ class Manga extends Model
     function genre(){
         return $this->belongsTo(Genre::class);
     }
+
+    function chapters(){
+        return $this->hasMany(Chapter::class);
+    }
 }

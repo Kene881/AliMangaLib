@@ -17,6 +17,10 @@
                     DELETE
                 </button>
             </form>
+
+            <hr/>
+
+            <a href="{{ route('chapter.index', ['manga' => $manga]) }}" class="btn btn-primary">Chapters</a>
         </div>
     </div>
 </x-layouts.app>
