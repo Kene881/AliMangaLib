@@ -10,4 +10,12 @@
 
     </x-partials.navbar>
 
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col">
+                {{ $slot }}
+            </div>
+        </div>
+    </div>
+
 </x-layouts.base>
