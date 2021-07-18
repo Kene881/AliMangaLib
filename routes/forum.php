@@ -1,7 +1,7 @@
 <?php
 
 
-use App\Http\Controllers\ForumController;
+use App\Http\Controllers\ForumControllers\ForumController;
 use Illuminate\Support\Facades\Route;
 
 Route::resource('forums', ForumController::class)

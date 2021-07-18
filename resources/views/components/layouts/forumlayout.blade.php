@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<div class="form-group">
+{{--<div class="form-group">
 
         <h1>@if($forum) Edit title of forum @else Create title of forum @endif</h1>
 
@@ -48,11 +48,26 @@
 
             <button>@if($forum) Edit post @else Create post @endif</button>
 
-        </form>
+        </form>--}}
+
+
+        <div class="container p-3">
+            <div class="row justify-content-center">
+                <div class="col-4">
+                    {{--display-5--}}
+                    <h1 class="h4 text-secondary mb-3 text-center"></h1>
+
+                    <div class="card card-body">
+                         @yield('content')
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
 
-    @yield('content')
+
+
 
 </body>
 </html>

@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\ForumControllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Forum;
+use App\Models\ForumModels\Forum;
 use App\Models\User;
 use Illuminate\Validation\Rule;
 
