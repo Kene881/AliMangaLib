@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\ForumModels\Forum;
+use App\Models\Manga\Comment;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -35,4 +36,7 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Forum::class);
     }
 
+    function comments() {
+        return $this->hasMany(Comment::class);
+    }
 }
