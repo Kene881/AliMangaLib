@@ -1,4 +1,7 @@
 <x-layouts.app title="{{ __('Manga') }}">
+
+    <a href="{{ route('manga.index') }}">All manga</a>
+
     <div class="card p-3">
         <div class="card-header">
             {{ $manga->title }}

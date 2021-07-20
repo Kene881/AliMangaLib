@@ -63,9 +63,6 @@ class MangaController extends Controller
 
     public function update(MangaRequest $request, Manga $manga)
     {
-//        $data = $request->validated();
-//
-//        $manga->update($data);
         $manga->fill($request->validated());
         $manga->genre()->associate($request->genre_id);
         $this->uploadImage($manga, $request);
@@ -95,6 +92,7 @@ class MangaController extends Controller
     function removeImage(Manga $manga): bool {
         if (!$manga->image_path)
             return false;
+
         return Storage::delete($manga->image_path);
     }
 }

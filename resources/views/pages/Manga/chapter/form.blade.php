@@ -10,7 +10,10 @@ $chapter = $chapter ?? null;
                   action="{{ $chapter ? route('chapter.update', $chapter) : route('chapter.store') }}"
                   method="post"
                   enctype="multipart/form-data">
-                @csrf @if($chapter) @method('put') @endif
+                @csrf
+                @if($chapter)
+                    @method('put')
+                @endif
 
                 <div class="mb-3">
                     <label for="name" class="form-label">{{ __('Name') }}</label>

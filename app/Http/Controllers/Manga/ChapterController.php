@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Manga\ChapterRequest;
 use App\Models\Manga\Chapter;
 use App\Models\Manga\Manga;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 class ChapterController extends Controller
@@ -53,24 +54,39 @@ class ChapterController extends Controller
         ]);
     }
 
-    public function edit(Chapter $chapter)
+    public function edit(Chapter $chapter, Manga $manga)
     {
+//        dd($chapter);
         return view('pages.manga.chapter.form', [
-            'chapter' => $chapter
+            'chapter' => $chapter,
+            'manga' => $manga
         ]);
     }
 
     public function update(ChapterRequest $request, Chapter $chapter)
     {
-        //
+        $chapter->fill($request->validated());
+        $chapter->manga()->associate($request->manga_id);
+//        dd($chapter);
+        $this->uploadImages($chapter, $request->validated());
+        $chapter->save();
+
+        return redirect()->route('chapter.show', $chapter);
     }
 
     public function destroy(Chapter $chapter)
     {
-        //
+        $manga = $chapter->manga;
+        $this->removeImages($chapter);
+        $chapter->delete();
+        return redirect()->route('chapter.index', $manga);
     }
 
     function uploadImages(Chapter $chapter, $data) {
+
+        if (!array_key_exists('path_to_images', $data))
+            return;
+
         $path = "public/manga/{$chapter->manga->title}/{$chapter->name}";
         Storage::makeDirectory($path);
 
@@ -81,14 +97,15 @@ class ChapterController extends Controller
             $files[$i]->storeAs($path, "{$i}.{$extension}");
         }
 
-        $this->removeImage($chapter);
+        $this->removeImages($chapter);
         $chapter->path_to_images = $path;
         $chapter->save();
     }
 
-    function removeImage(Chapter $chapter): bool {
+    function removeImages(Chapter $chapter): bool {
         if (!$chapter->path_to_images)
             return false;
-        return Storage::delete($chapter->path_to_images);
+
+        return Storage::deleteDirectory($chapter->path_to_images);
     }
 }
