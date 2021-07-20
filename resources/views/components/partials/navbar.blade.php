@@ -25,8 +25,10 @@
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="post">
                             @csrf
-
                         </form>
+                        <a href="{{ route('users.show', auth()->user()) }}" class="dropdown-item">
+                            {{ __('Profile') }}
+                        </a>
                     </ul>
                 </li>
 

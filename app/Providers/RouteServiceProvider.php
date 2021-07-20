@@ -12,7 +12,7 @@ class RouteServiceProvider extends ServiceProvider
 {
     public const HOME = '/';
 
-    // protected $namespace = 'App\\Http\\Controllers';
+    //protected $namespace = 'App\\Http\\Controllers';
 
     public function boot()
     {
@@ -29,9 +29,20 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/web.php'));
 
             Route::middleware('web')
+                ->prefix('news')
+                ->name('news.')
+                ->group(base_path('routes/news.php'));
+
+            Route::middleware('web')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/forum.php'));
+
+            
+            Route::middleware('web')
                 ->group(base_path('routes/manga.php'));
         });
     }
+
 
     protected function configureRateLimiting()
     {
