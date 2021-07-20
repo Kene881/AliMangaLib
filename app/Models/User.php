@@ -14,6 +14,7 @@ class User extends Authenticatable implements MustVerifyEmail
     use HasFactory, Notifiable;
 
     protected $fillable = [
+        'avatar_path',
         'name',
         'email',
         'password',

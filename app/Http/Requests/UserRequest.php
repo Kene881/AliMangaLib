@@ -16,6 +16,7 @@ class UserRequest extends FormRequest
             $uniqueName->ignoreModel($user);
 
         return [
+            'avatar_path' => ['nullable'],
             'name' => ['string', 'max:255', $uniqueName, 'required'],
             'email' => ['string', 'required'],
             'sex' => ['string', 'required'],
