@@ -34,4 +34,8 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Forum::class);
     }
 
+    function role(){
+        return $this->belongsTo(Role::class);
+    }
+
 }
