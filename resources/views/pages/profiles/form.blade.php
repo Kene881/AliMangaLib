@@ -3,9 +3,33 @@
 
     <h3 class="h1 m-5 text-center">Edit your profile</h3>
 
-    <form class="card card-body m-5"
+    <div class="d-flex flex-column align-items-center">
+        @if ($user->avatar_path)
+            <img src="{{ \Storage::url($user->avatar_path) }}"
+                 alt="profile_pic" class="img-fluid rounded"
+                 style="max-height: 200px;">
+            <form action="{{ route('users.deleteImage', $user) }}" method="post">
+                @csrf @method('delete')
+                <button class="btn btn-danger">{{ __('Delete avatar image') }}</button>
+            </form>
+        @else
+            <img class="img-fluid rounded"
+                 src="https://pic.onlinewebfonts.com/svg/img_87237.png"
+                 alt="prof-image-test" style="max-height: 200px;">
+        @endif
+    </div>
+
+    <form enctype="multipart/form-data" class="card card-body m-5"
           action="{{ route('users.update', $user) }}" method="post">
         @csrf @method('put')
+
+        <div class="mb-3">
+            <label for="avatar_path" class="form-label">{{ __('Profile image') }}</label>
+            <input class="form-control @error('avatar_path') is-invalid @enderror" type="file" id="avatar_path" name="avatar_path">
+            @error('avatar_path')
+            <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+        </div>
 
         <div class="mb-3">
             <label for="name" class="form-label">{{ __('Name') }}</label>
