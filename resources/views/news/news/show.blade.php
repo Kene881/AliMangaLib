@@ -48,7 +48,12 @@
                         <button class="cancel-button btn">{{__('Delete')}}</button>
                     </div>
                 </div>
-
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        <a class="cancel-button btn" href="{{ route('news.news.index') }}">{{__('Back')}}</a>
+                    </div>
+                </div>
+            </form>
         </div>
         {{--    </div>--}}
 

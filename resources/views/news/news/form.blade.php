@@ -48,7 +48,7 @@ $news = $news ?? null;
                             <button class="create-button btn">{{__($news ? 'Edit' : 'Create')}}</button>
                         </div>
                         <div class="col-md-2">
-                            <a class="cancel-button btn" href="{{ $previous }}">Cancel</a>
+                            <a class="cancel-button btn" href="{{ $previous }}">{{__('Cancel')}}</a>
                         </div>
                     </div>
 
