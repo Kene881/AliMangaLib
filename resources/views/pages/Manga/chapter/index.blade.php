@@ -1,20 +1,44 @@
-<x-layouts.app title="chapter">
-    <h3>{{ $manga->title }}</h3>
+<x-layouts.navbar title="Chapters">
+    <div class="container" style="width: 50%;">
 
-    <a href="{{ route('manga.show', $manga) }}">Back to the title</a><br/>
+        <div class="row d-flex justify-content-start mt-3 manga-header-info">
 
-    <a class="btn btn-success" href="{{ route('chapter.create', $manga) }}">Add chapter</a>
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>{{ $manga->title }}</h3>
+                </div>
+            </div>
 
-    @if($chapters->isEmpty())
-        {{ __('Nothing') }}
-    @else
-        <div>
-            <ol>
-                @foreach($chapters as $chapter)
-                    <li><a href="{{ route('chapter.show', $chapter) }}">{{ $chapter->name }}</a></li>
-                @endforeach
-            </ol>
+            <div class="row mt-4">
+                <div class="col-md-12">
+                    <a class="btn create-button" href="{{ route('chapter.create', $manga) }}">Add chapters</a>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <h2>Chapters:</h2>
+                    @if($chapters->isEmpty())
+                        {{ __('Nothing') }}
+                    @else
+                        @foreach($chapters as $chapter)
+                            <div class="col-md-12">
+                                <a href="{{ route('chapter.show', $chapter) }}">{{ $chapter->name }}</a>
+                                <hr>
+                            </div>
+                        @endforeach
+                    @endif
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <a class="btn create-button" href="{{ route('manga.show', $manga) }}">Back to manga</a>
+                </div>
+            </div>
         </div>
-    @endif
+    </div>
+</x-layouts.navbar>
 
-</x-layouts.app>
+
+

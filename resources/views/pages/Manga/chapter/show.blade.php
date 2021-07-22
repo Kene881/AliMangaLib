@@ -1,24 +1,42 @@
-<x-layouts.app title="{{ __('Read chapter') }}">
+<x-layouts.navbar title="Chapters">
 
-    <a href="{{ route('chapter.index', $chapter->manga) }}">All chapters</a>
+    <div class="container" style="width: 50%;">
+        <div class="row d-flex justify-content-start mt-3">
 
-    <div>
-        <a href="{{ route('chapter.edit', ['chapter' => $chapter, 'manga' => $chapter->manga]) }}" class="btn btn-primary">{{ __('EDIT') }}</a>
-        <form action="{{ route('chapter.destroy', $chapter) }}" method="post">
-            @csrf
-            @method('delete')
-            <button class="btn">
-                {{ __('DELETE') }}
-            </button>
-        </form>
+            <div class="row">
+                <div class="col-md-12">
+                    <a class="btn create-button" href="{{ route('chapter.index', $chapter->manga) }}">All chapters</a>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-md-12">
+                    <a href="{{ route('chapter.edit', ['chapter' => $chapter, 'manga' => $chapter->manga]) }}"
+                       class="btn create-button">Edit Chapter</a>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-md-12">
+                    <form action="{{ route('chapter.destroy', $chapter) }}" method="post">
+                        @csrf
+                        @method('delete')
+                        <button class="btn create-button">
+                            {{ __('DELETE') }}
+                        </button>
+                    </form>
+
+                </div>
+            </div>
+
+            @foreach($images_path as $path)
+                <div class="col-md-12 mt-4">
+                    <img class="fullWHImage" src="{{ \Storage::url($path) }}">
+                </div>
+            @endforeach
+
+
+        </div>
     </div>
 
-    @foreach($images_path as $path)
-        <div class="text-center">
-            <img height="800px" width="600px" src="{{ \Storage::url($path) }}">
-            <hr/>
-        </div>
-    @endforeach
-
-
-</x-layouts.app>
+</x-layouts.navbar>
