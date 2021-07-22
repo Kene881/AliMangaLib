@@ -9,15 +9,14 @@
             </div>
         @endif
         <div class="mb-3">
-            <label for="email" class="form-label">{{ __('Email') }}</label>
-            <input class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" type="email" id="email" name="email" />
+            <input placeholder="email" class="input-style mt-3 @error('email') is-invalid @enderror" value="{{ old('email') }}" type="email" id="email" name="email" />
             @error('email')
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
         </div>
 
         <div class="d-flex align-items-center justify-content-end">
-            <button class="btn btn-primary">
+            <button class="btn create-button">
                 {{ __('Send reset link') }}
             </button>
         </div>

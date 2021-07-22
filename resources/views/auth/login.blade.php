@@ -1,22 +1,25 @@
 <x-layouts.auth :title="__('Login')">
 
+
     <form action="{{ route('login') }}" method="post">
         @csrf
 
-        <div class="mb-3">
-            <label for="email" class="form-label">{{ __('Email') }}</label>
-            <input class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" type="email" id="email" name="email" />
-            @error('email')
+        <div class="row">
+            <div class="col-md-12">
+                <input placeholder="email" class="input-style mt-3 @error('email') is-invalid @enderror" value="{{ old('email') }}" type="email" id="email" name="email" />
+                @error('email')
                 <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
+                @enderror
+            </div>
         </div>
 
-        <div class="mb-3">
-            <label for="password" class="form-label">{{ __('Password') }}</label>
-            <input class="form-control @error('password') is-invalid @enderror" type="password" id="password" name="password" />
-            @error('password')
+        <div class="row">
+            <div class="col-md-12">
+                <input placeholder="password" class="input-style mt-3 @error('password') is-invalid @enderror" type="password" id="password" name="password" />
+                @error('password')
                 <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
+                @enderror
+            </div>
         </div>
 
         <div class="form-check mb-3">
@@ -25,20 +28,25 @@
                 {{ __('Remember') }}
             </label>
         </div>
-
-        <div class="d-flex align-items-center justify-content-between">
+{{--     d-flex align-items-center           justify-content-between--}}
+        <div class="row">
 
             @if(\Route::has('password.email'))
-                <a href="{{ route('password.email') }}">
-                    {{ __('Forgot password?') }}
-                </a>
+                <div class="col-md-9">
+                    <a href="{{ route('password.email') }}">
+                        {{ __('Forgot password?') }}
+                    </a>
+                </div>
             @else
                 <span></span>
             @endif
 
-            <button class="btn btn-primary">
-                {{ __('Login') }}
-            </button>
+            <div class="col-md-3">
+                <button class="btn create-button">
+                    {{ __('Login') }}
+                </button>
+            </div>
+
         </div>
     </form>
 
