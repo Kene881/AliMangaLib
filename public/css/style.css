@@ -1,0 +1,162 @@
+a { text-decoration: none;color: black; }
+
+a :visited{ color: black; }
+
+a:hover { color: #f6813a; }
+
+body
+{  background-color: #f2f2f3; }
+
+.navbar-base {
+    background-color: #e88c14;
+    padding: 0.1rem;
+}
+
+.news-card-base {
+    background-color: white;
+    padding: 1rem 3rem 1rem 3rem;
+}
+
+.manga-card-base {
+    background-color: white;
+    padding: 1rem 2rem 1rem 2rem;
+}
+
+.manga-header {
+    background-color: white;
+    font-weight: bold;
+    border-bottom: solid #e5e5e5 1px;
+    padding-bottom: 4px;
+}
+
+.manga-rules {
+    padding: 0.5rem;
+    background-color: #f2f2f3;
+    border-left: solid #007feb 3px;
+}
+
+.manga-rules p {
+    margin: 8px 0 8px 0;
+}
+
+.navbar-container {
+    margin-left: 8rem;
+}
+
+.navbar-button {
+    padding: 0.2rem;
+    height: 70%;
+    background-color: #e88c14;
+    border:none;
+    text-align: center;
+    align-self: center;
+    color: white;
+    font-weight: bold;
+    font-size: medium;
+
+    -webkit-transition: background-color 0.5s;
+
+}
+
+.navbar-button:hover {
+    background-color: #e89c2c;
+    -webkit-transition: background-color 0.5s;
+}
+
+.navbar-button-img {
+    height: 70%;
+    background-color: #e88c14;
+    border:none;
+    text-align: center;
+    align-self: center;
+    color: white;
+    font-weight: bold;
+    font-size: large;
+
+    -webkit-transition: background-color 0.5s;
+
+}
+
+.navbar-button-img img {
+    width: 2rem;
+    height: 2rem;
+}
+
+.fullWHImage {
+    width: 100%;
+    height: 100%;
+}
+
+.news-header-container {
+    margin-top: 10px;
+}
+
+.news-start-container {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.news-post {
+    background-color: white;
+    border: 1px solid #e5e5e5;
+}
+
+.news-post-sub-info {
+    font-size: medium;
+    color: #718096;
+}
+
+.navbar-button-img:hover {
+    background-color: #e89c2c;
+    -webkit-transition: background-color 0.5s;
+}
+
+.manga-card-base .input-style{
+    border: 1px solid #e5e5e5;
+    width: 100%;
+    vertical-align: center;
+    padding: 0.5rem;
+    font-weight: bold;
+}
+
+.input-style {
+    border: 1px solid #e5e5e5;
+    width: 100%;
+    vertical-align: center;
+    padding: 1rem;
+    font-weight: bold;
+}
+
+.create-button {
+    width: 100%;
+    background-color: #fca638;
+    color: white;
+    font-weight: bold;
+    -webkit-transition: background-color 0.5s;
+
+}
+
+.create-button:hover {
+    color: white;
+    background-color: #e89c2c;
+}
+
+.cancel-button {
+    width: 100%;
+    background-color: #e8e4e4;
+    color: #5d6264;
+    font-weight: bold;
+    -webkit-transition: background-color 0.5s;
+
+}
+
+.cancel-button:hover {
+    color: #5d6264;
+    background-color: #d5d7d8;
+}
+
+.manga-cover-button {
+    border: none;
+    background-color: white;
+
+}
