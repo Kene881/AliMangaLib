@@ -14,6 +14,7 @@ class User extends Authenticatable implements MustVerifyEmail
     use HasFactory, Notifiable;
 
     protected $fillable = [
+        'avatar_path',
         'name',
         'email',
         'password',
@@ -34,4 +35,7 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Forum::class);
     }
 
+    function comments() {
+        return $this->hasMany(Comment::class);
+    }
 }

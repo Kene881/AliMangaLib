@@ -20,6 +20,9 @@ class AddProfileFieldsToUsersTable extends Migration
             $table->text('about')
                 ->after('email')
                 ->nullable();
+            $table->string('avatar_path')
+                ->after('id')
+                ->nullable();
         });
     }
 
