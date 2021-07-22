@@ -4,8 +4,11 @@
         <div class="row d-flex justify-content-start mt-3 manga-card-base">
             <div class="row">
                 @if($mangas->isEmpty())
-                    <div>
-                        {{ __('Lots of manga coming soon') }}
+                    <div class="card">
+                        <img src="{{ \Storage::url('public/forSeeds/ded.png') }}" style="width: 100%; height: 20vw; object-fit: cover;" class="manga-list-image" alt="...">
+                        <div class="card-body">
+                            <p class="card-text">add manga pls</p>
+                        </div>
                     </div>
                 @else
                     @foreach($mangas as $manga)
@@ -30,6 +33,15 @@
                     <h4>Last News</h4>
                 </div>
             </div>
+
+            @if($news->isEmpty())
+                <div class="row mt-1 mb-4" style="border: solid #f2f2f3 2px">
+                    <div class="col-md-12">
+                        <p>no news</p>
+                        <span class="news-post-sub-info">(╯°□°）╯︵ ┻━┻ "ヽ('▽｀)ノ" (`･ω･´)</span>
+                    </div>
+                </div>
+            @endif
 
             @foreach($news as $one_news)
                 <div class="row mt-1 mb-4" style="border: solid #f2f2f3 2px">
