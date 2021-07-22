@@ -3,12 +3,26 @@
 use App\Http\Controllers\Manga\CommentController;
 use App\Http\Controllers\Profile\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Models\Manga\Manga;
+use App\Models\News\News;
 
+Route::get('/', function () {
+    $mangas = Manga::query()
+        ->orderBy('created_at', 'desc')
+        ->take(4)
+        ->get();
 
-Route::view('/', 'pages.index');
+    $news = News::query()
+        ->orderBy('created_at', 'desc')
+        ->take(3)
+        ->get();
 
-//$files = Storage::files('public/manga/Claymore');
-//dd($files);
+    return view('pages.index', [
+        'mangas' => $mangas,
+        'news' => $news
+    ]);
+});
+
 # Profile pages
 Route::resource('users', UserController::class)
     ->middleware(['auth', 'verified'])
