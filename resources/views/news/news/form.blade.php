@@ -36,7 +36,7 @@ $news = $news ?? null;
                     <div class="row">
                         <div class="col-md-12">
                             <div class="col-md-12">
-                                <textarea class="input-style mt-3 @error('description') is-invalid @enderror" placeholder="Description" name="description" id="description"></textarea>
+                                <input class="input-style mt-3 @error('description') is-invalid @enderror" value="{{ old('description', $news->description ?? null) }}" placeholder="Description" name="description" id="description" />
                                 @error('description')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -48,7 +48,7 @@ $news = $news ?? null;
                             <button class="create-button btn">{{__($news ? 'Edit' : 'Create')}}</button>
                         </div>
                         <div class="col-md-2">
-                            <a class="cancel-button btn" href="{{ $previous }}">Cancel</a>
+                            <a class="cancel-button btn" href="{{ $previous }}">{{__('Cancel')}}</a>
                         </div>
                     </div>
 
