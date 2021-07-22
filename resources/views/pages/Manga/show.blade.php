@@ -80,6 +80,7 @@
         </div>
         <hr>
         <div class="row py-4">
+            @can('create', App\Models\Comment::class)
             <div class="col-sm-12 col-xl-4 py-3">
                 <h4 class="h3">{{ __('Leave your comment') }}</h4>
                 <form action="{{ route('comments.store') }}" method="post">
@@ -98,6 +99,7 @@
                     </div>
                 </form>
             </div>
+            @endcan
             <div class="col-sm-12 col-xl-8 py-3">
                 <h4 class="h3">{{ __('Other comments') }}</h4>
                 <div class="row row-cols-1 g-4">
@@ -106,4 +108,6 @@
             </div>
         </div>
     </div>
-</x-layouts.app>
+
+</div>
+</x-layouts.navbar>
