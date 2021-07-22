@@ -5,7 +5,7 @@
         <div class="col-md-12">
             <div class="row">
                 <div class="col-md-4">
-                    <img style="width: 100%; height: 25vw;" src="{{ \Storage::url($manga->image_path) }}">
+                    <img style="width: 100%; height: 25vw;" class="rounded" src="{{ \Storage::url($manga->image_path) }}">
                 </div>
 
                 <div class="col-md-8">
