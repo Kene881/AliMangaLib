@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Manga\Manga;
+use App\Models\Comment;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -17,14 +17,14 @@ class CreateCommentsTable extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->string('title')->nullable();
             $table->text('content');
-            $table->foreignIdFor(Manga::class)
-                ->constrained()->cascadeOnDelete();
             $table->foreignIdFor(User::class)
                 ->nullable()
                 ->constrained()
                 ->nullOnDelete();
+            $table->foreignIdFor(Comment::class, 'parent_id')
+                ->nullable();
+            $table->morphs('comment');
             $table->timestamps();
         });
     }

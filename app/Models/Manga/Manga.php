@@ -2,6 +2,7 @@
 
 namespace App\Models\Manga;
 
+use App\Models\Comment;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -22,6 +23,7 @@ class Manga extends Model
     }
 
     function comments() {
-        return $this->hasMany(Comment::class);
+        return $this->morphMany(Comment::class, 'comment')
+            ->whereNull('parent_id');
     }
 }

@@ -1,25 +1,24 @@
 <?php
 
-namespace App\Models\Manga;
+namespace App\Models;
 
-use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
     protected $fillable = [
-        'title', 'content'
+        'content'
     ];
 
-    protected $with = [
-        'user'
-    ];
+    function comment() {
+        return $this->morphTo();
+    }
 
     function user() {
         return $this->belongsTo(User::class);
     }
 
-    function manga() {
-        return $this->belongsTo(Manga::class);
+    function replies() {
+        return $this->hasMany(Comment::class, 'parent_id');
     }
 }
