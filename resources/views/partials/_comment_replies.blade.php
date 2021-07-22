@@ -14,7 +14,7 @@
                 </div>
                 <div class="d-flex align-items-center">
                     @can('create', App\Models\Comment::class)
-                        <a class="btn btn-primary me-2" data-bs-toggle="collapse"
+                        <a class="btn create-button me-2" data-bs-toggle="collapse"
                            href="#replyForm-{{ $comment->id }}" role="button"
                            aria-expanded="false" aria-controls="collapseExample">
                             Add reply
@@ -23,7 +23,7 @@
                     @can('delete', $comment)
                         <form action="{{ route('comments.destroy', $comment) }}" method="post">
                             @csrf @method('delete')
-                            <button class="btn btn-danger">Delete</button>
+                            <button class="btn create-button">Delete</button>
                         </form>
                     @endcan
                 </div>
@@ -36,8 +36,8 @@
                             <textarea class="form-control @error('content') is-invalid @enderror"
                                       id="content-{{$comment->id}}" name="content"></textarea>
                         </div>
-                        <div>
-                            <button class="btn btn-primary">Reply</button>
+                        <div class="col-md-3 float-left">
+                            <button class="btn create-button">Reply</button>
                         </div>
                     </form>
                 </div>
