@@ -8,42 +8,53 @@ $news = $news ?? null;
 
 ?>
 
-<x-layouts.app :title="__($news ? 'Edit news' : 'New news')">
+<x-layouts.navbar :title="__($news ? 'Edit news' : 'New news')">
 
-    <a class="btn btn-outline-danger" href="{{ $previous }}">
-        {{__('Cancel')}}
-    </a>
 
-    <div class="row">
-        <div class="col-4">
-            <form class="card card-body"
-                  action="{{ $news ? route('news.news.update', $news) : route('news.news.store') }}"
-                  method="post">
-                @csrf @if($news) @method('put') @endif
+    <div class="container mt-4" style="width: 50%;">
 
-                <div class="mb-3">
-                    <label for="title" class="form-label">{{ __('Title') }}</label>
-                    <input class="form-control @error('title') is-invalid @enderror" value="{{ old('title', $news->title ?? null) }}" type="text" id="title" name="title" />
-                    @error('title')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
+        <div class="row d-flex justify-content-start news-card-base">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-5">
+                        <h3>Create news</h3>
+                    </div>
                 </div>
+                <form action="{{ $news ? route('news.news.update', $news) : route('news.news.store') }}"
+                      method="post">
+                    @csrf @if($news) @method('put') @endif
 
-                <div class="mb-3">
-                    <label for="description" class="form-label">{{ __('Description') }}</label>
-                    <textarea class="form-control @error('description') is-invalid @enderror "
-                              name="description" id="description">{{ old('description', $news->description ?? null) }}</textarea>
-                    @error('description')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input class="input-style mt-3 @error('title') is-invalid @enderror" value="{{ old('title', $news->title ?? null) }}" placeholder="Title" name="title" id="title" />
+                            @error('title')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
 
-                <button class="btn btn-primary">
-                    {{__($news ? 'Edit' : 'Add')}}
-                </button>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="col-md-12">
+                                <textarea class="input-style mt-3 @error('description') is-invalid @enderror" placeholder="Description" name="description" id="description"></textarea>
+                                @error('description')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-md-3 me-0">
+                            <button class="create-button btn">{{__($news ? 'Edit' : 'Create')}}</button>
+                        </div>
+                        <div class="col-md-2">
+                            <a class="cancel-button btn" href="{{ $previous }}">Cancel</a>
+                        </div>
+                    </div>
 
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 
-</x-layouts.app>
+</x-layouts.navbar>
