@@ -26,16 +26,7 @@
         </div>
         {{--News and icon--}}
 
-        @if($news->isEmpty())
-            <div class="alert alert-secondary">
-                {{__('No news added yet')}}
-                {{__('Please, ')}}
-                <a class="alert-link" href="{{ route('news.news.create') }}">
-                    {{__('add one')}}
-                </a>
-            </div>
-        @else
-
+        @if(!$news->isEmpty())
             @foreach($news as $one_news)
 
                 <div class="row news-header-container d-flex justify-content-center mb-2">
