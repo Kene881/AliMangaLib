@@ -97,7 +97,7 @@ class ChapterController extends Controller
             $files[$i]->storeAs($path, "{$i}.{$extension}");
         }
 
-        $this->removeImages($chapter);
+//        $this->removeImages($chapter);
         $chapter->path_to_images = $path;
         $chapter->save();
     }

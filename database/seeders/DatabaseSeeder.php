@@ -17,5 +17,13 @@ class DatabaseSeeder extends Seeder
             GenreSeeder::class,
             MangaSeeder::class
         ]);
+
+        $this->call([
+            RoleSeeder::class
+        ]);
+
+        $this->call([
+            AdminUserSeeder::class
+        ]);
     }
 }

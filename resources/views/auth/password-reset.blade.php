@@ -5,31 +5,41 @@
 
         <input type="hidden" name="token" value="{{ $request->token }}">
 
-        <div class="mb-3">
-            <label for="email" class="form-label">{{ __('Email') }}</label>
-            <input value="{{ old('email', $request->email) }}" class="form-control @error('email') is-invalid @enderror" type="email" id="email" name="email" />
-            @error('email')
-            <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
+        <div class="row">
+            <div class="col-md-12">
+                <input placeholder="email" value="{{ old('email', $request->email) }}" class="input-style mt-3 @error('email') is-invalid @enderror" type="email" id="email" name="email" />
+                @error('email')
+                <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
         </div>
 
-        <div class="mb-3">
-            <label for="password" class="form-label">{{ __('Password') }}</label>
-            <input class="form-control @error('password') is-invalid @enderror" type="password" id="password" name="password" />
-            @error('password')
-            <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
+        <div class="row">
+            <div class="col-md-12">
+                <input placeholder="password" class="input-style mt-3 @error('password') is-invalid @enderror" type="password" id="password" name="password" />
+                @error('password')
+                <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
         </div>
 
-        <div class="mb-3">
-            <label for="password_confirmation" class="form-label">{{ __('Password confirmation') }}</label>
-            <input class="form-control" type="password" id="password_confirmation" name="password_confirmation" />
+        <div class="row">
+            <div class="col-md-12">
+                <input placeholder="password" class="input-style mt-3" type="password" id="password_confirmation" name="password_confirmation" />
+            </div>
         </div>
 
-        <div class="d-flex align-items-center justify-content-end">
-            <button class="btn btn-primary">
-                {{ __('Update password') }}
-            </button>
+        <div class="row">
+
+            <div class="col-md-8">
+
+            </div>
+
+            <div class="col-md-4">
+                <button class="btn create-button float-right m-2">
+                    {{ __('Update password') }}
+                </button>
+            </div>
         </div>
     </form>
 

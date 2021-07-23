@@ -5,7 +5,7 @@
         <div class="col-md-12">
             <div class="row">
                 <div class="col-md-4">
-                    <img style="width: 100%; height: 25vw;" src="{{ \Storage::url($manga->image_path) }}">
+                    <img style="width: 100%; height: 25vw;" class="rounded" src="{{ \Storage::url($manga->image_path) }}">
                 </div>
 
                 <div class="col-md-8">
@@ -72,5 +72,46 @@
 
         </div>
     </div>
+
+    <div class="row d-flex justify-content-start mt-3 manga-header-info">
+        <div class="container my-3">
+            <div class="row py-4">
+                <div class="col">
+                    <h3 class="h1">{{ __('Comments') }}</h3>
+                </div>
+            </div>
+            <hr>
+            <div class="row py-4">
+                @can('create', App\Models\Comment::class)
+                    <div class="col-sm-12 col-xl-4 py-3 border border-dark rounded">
+                        <h4 class="h3">{{ __('Leave your comment') }}</h4>
+                        <form action="{{ route('comments.store') }}" method="post">
+                            @csrf
+                            <div class="mb-3">
+                                <label class="form-label" for="content"></label>
+                                <textarea class="form-control @error('content') is-invalid @enderror"
+                                          id="content" name="content">{{ old('content') }}</textarea>
+                                @error('content')
+                                <span>{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <input type="hidden" name="manga_id" value="{{ $manga->id }}" />
+                            <div>
+                                <button class="btn create-button">Add comment</button>
+                            </div>
+                        </form>
+                    </div>
+                @endcan
+                <div class="col-sm-12 col-xl-8 py-3">
+                    <h4 class="h3">{{ __('Other comments') }}</h4>
+                    <div class="row row-cols-1 g-4">
+                        @include('partials._comment_replies', ['comments' => $manga->comments])
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </div>
 </x-layouts.navbar>
