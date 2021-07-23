@@ -1,12 +1,6 @@
 @props(['title' => null])
 
 <x-layouts.base :title="$title" {{ $attributes }}>
-
-    <style>
-        .display-comment .display-comment {
-            margin-left: 40px
-        }
-    </style>
     <x-partials.navbar>
 
         <x-partials.navbar.link href="{{ url('/') }}">

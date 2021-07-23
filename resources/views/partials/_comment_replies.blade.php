@@ -33,8 +33,10 @@
                     <form method="post" action="{{ route('replies.store', $comment) }}">
                         @csrf
                         <div class="mb-3 d-flex">
-                            <textarea class="form-control @error('content') is-invalid @enderror"
-                                      id="content-{{$comment->id}}" name="content"></textarea>
+                            <label>
+                                <textarea class="form-control @error('content') is-invalid @enderror"
+                                          id="content-{{$comment->id}}" name="content"></textarea>
+                            </label>
                         </div>
                         <div class="col-md-3 float-left">
                             <button class="btn create-button">Reply</button>
