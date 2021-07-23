@@ -66,9 +66,9 @@
                 <button class="navbar-button-img">
                     <a href="{{ route('users.show', auth()->user()) }}">
                         @if (auth()->user()->avatar_path)
-                            <img src="{{ Storage::url(auth()->user()->avatar_path) }}">
+                            <img class="border border-dark rounded" src="{{ Storage::url(auth()->user()->avatar_path) }}">
                         @else
-                            <img src="{{ Storage::url('users/default_img/no_avatar.png') }}">
+                            <img class="border border-dark rounded" src="{{ Storage::url('users/default_img/no_avatar.png') }}">
                         @endif
                     </a>
                 </button>
