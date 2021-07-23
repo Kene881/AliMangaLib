@@ -74,9 +74,6 @@
                 </div>
             </div>
 
-
-
-
         </div>
     </div>
 
@@ -103,8 +100,11 @@
                                 @enderror
                             </div>
                             <input type="hidden" name="manga_id" value="{{ $manga->id }}" />
-                            <div>
-                                <button class="btn create-button">Add comment</button>
+                            <div class="row justify-content-end">
+                                <div class="col-md-3">
+                                    <button class="btn create-button">Add comment</button>
+                                </div>
+
                             </div>
                         </form>
                     </div>
