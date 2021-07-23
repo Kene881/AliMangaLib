@@ -87,8 +87,8 @@
             <hr>
             <div class="row py-4">
                 @can('create', App\Models\Comment::class)
-                    <div class="col-sm-12 py-3 border border-dark rounded">
-                        <h4 class="h3">{{ __('Leave your comment') }}</h4>
+                    <div class="col-sm-12 py-3">
+                        <h3 class="h4">{{ __('Leave your comment') }}</h3>
                         <form action="{{ route('comments.store') }}" method="post">
                             @csrf
                             <div class="mb-3">
@@ -101,16 +101,15 @@
                             </div>
                             <input type="hidden" name="manga_id" value="{{ $manga->id }}" />
                             <div class="row justify-content-end">
-                                <div class="col-md-3">
+                                <div class="col-md-4">
                                     <button class="btn create-button">Add comment</button>
                                 </div>
-
                             </div>
                         </form>
                     </div>
                 @endcan
                 <div class="col-sm-12 py-3">
-                    <h4 class="h3">{{ __('Other comments') }}</h4>
+                    <h3 class="h4">{{ __('Other comments') }}</h3>
                     <div class="row row-cols-1 g-4">
                         @include('partials._comment_replies', ['comments' => $manga->comments])
                     </div>
