@@ -5,7 +5,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
-    <div class="container px-5">
+    <div class="container px-5" style="width: 70%">
         <div class="row py-3">
             <div class="col px-auto">
                 <h1 class="display-4">{{$user->name}}'s {{ __('profile') }}</h1>
@@ -13,20 +13,29 @@
         </div>
         <div class="row py-3">
             <div class="col-3 d-flex justify-content-center">
-                @if ($user->avatar_path)
-                    <img src="{{ \Storage::url($user->avatar_path) }}"
-                         alt="profile_pic" class="img-fluid rounded">
-                @else
-                    <img class="img-fluid rounded"
-                         src="https://pic.onlinewebfonts.com/svg/img_87237.png"
-                         alt="prof-image-test" style="max-height: 200px;">
-                @endif
+                <div>
+                    @if ($user->avatar_path)
+                        <img src="{{ \Storage::url($user->avatar_path) }}"
+                             alt="profile_pic" class="img-fluid rounded">
+                    @else
+                        <img src="{{ Storage::url('users/default_img/no_avatar.png') }}" style="max-height: 200px;">
+                    @endif
+
+                    @if ($user->id == auth()->user()->id)
+                        <div class="d-grid mt-4">
+                            <form action="{{ route('logout') }}" method="post">
+                                @csrf
+                                <button class="btn cancel-button">{{ __('Logout') }}</button>
+                            </form>
+                        </div>
+                    @endif
+                </div>
             </div>
             <div class="col d-flex flex-column">
                 <div class="card">
                     <div class="card-body">
                         <p class="fs-5">
-                            <span class="fw-bold">{{ __('Username') }}</span>:
+                            <span class="fw-bold">{{ __('Name') }}</span>:
                             {{ $user->name }}
                         </p>
                         <p class="fs-5">

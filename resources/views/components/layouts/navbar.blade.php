@@ -36,10 +36,6 @@
                 </button>
             </div>
 
-            <div class="col-md-3">
-                <div></div>
-            </div>
-
             <div class="col-md-auto d-flex justify-content-center">
                 <button class="navbar-button-img">
                     <a href="{{ route('manga.create') }}">
@@ -49,6 +45,16 @@
             </div>
         @endif
 
+        <div class="col-md-1 d-flex justify-content-center">
+            <button class="navbar-button">
+                <a href="{{ route('news.news.index') }}">News</a>
+            </button>
+        </div>
+
+        <div class="col-md-3">
+            <div></div>
+        </div>
+
         @auth
             <div class="col-md-auto d-flex justify-content-center">
                 <button class="navbar-button-img">
@@ -56,7 +62,7 @@
                         @if (auth()->user()->avatar_path)
                             <img src="{{ Storage::url(auth()->user()->avatar_path) }}">
                         @else
-                            <img src="https://pic.onlinewebfonts.com/svg/img_87237.png">
+                            <img src="{{ Storage::url('users/default_img/no_avatar.png') }}">
                         @endif
                     </a>
                 </button>
