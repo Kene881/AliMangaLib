@@ -1,4 +1,4 @@
-<x-layouts.app title="{{__('Profile')}}">
+<x-layouts.navbar title="{{__('Profile')}}">
     @if (session('status') == 'verification-link-sent')
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
             {{ __('Verification link has been sent to your email!') }}
@@ -79,11 +79,11 @@
             <div class="row py-2">
                 <div class="col">
                     <div class="d-grid">
-                        <a href="{{ route('users.edit', $user) }}" class="btn btn-primary">
+                        <a href="{{ route('users.edit', $user) }}" class="create-button btn">
                             {{ __('Edit your profile') }}</a>
                     </div>
                 </div>
             </div>
         @endcan
     </div>
-</x-layouts.app>
+</x-layouts.navbar>
