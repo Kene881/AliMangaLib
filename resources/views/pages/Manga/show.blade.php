@@ -1,5 +1,10 @@
 <x-layouts.navbar title="{{ __('show manga') }}">
-<div class="container" style="width: 60%;">
+    <style>
+        .display-comment .display-comment {
+            margin-left: 40px
+        }
+    </style>
+<div class="container" style="width: 70%;">
 
     <div class="row d-flex justify-content-start mt-3 manga-header-info">
         <div class="col-md-12">
@@ -83,7 +88,7 @@
             <hr>
             <div class="row py-4">
                 @can('create', App\Models\Comment::class)
-                    <div class="col-sm-12 col-xl-4 py-3 border border-dark rounded">
+                    <div class="col-sm-12 py-3 border border-dark rounded">
                         <h4 class="h3">{{ __('Leave your comment') }}</h4>
                         <form action="{{ route('comments.store') }}" method="post">
                             @csrf
@@ -102,7 +107,7 @@
                         </form>
                     </div>
                 @endcan
-                <div class="col-sm-12 col-xl-8 py-3">
+                <div class="col-sm-12 py-3">
                     <h4 class="h3">{{ __('Other comments') }}</h4>
                     <div class="row row-cols-1 g-4">
                         @include('partials._comment_replies', ['comments' => $manga->comments])
