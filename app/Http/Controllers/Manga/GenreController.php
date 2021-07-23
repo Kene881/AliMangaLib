@@ -33,7 +33,7 @@ class GenreController extends Controller
 
     public function show(Genre $genre)
     {
-        return view('pages.manga.genre.show', [
+        return view('pages.manga.genre.index', [
             'genre' => $genre
         ]);
     }
@@ -49,7 +49,12 @@ class GenreController extends Controller
     {
         $genre->update($request->validated());
 
-        return redirect()->route('genre.show', $genre);
+        $genres = Genre::query()
+            ->get();
+
+        return view('pages.manga.genre.index', [
+            'genres' => $genres
+        ]);
     }
 
     public function destroy(Genre $genre)

@@ -67,11 +67,13 @@
                     </div>
                     @endif
 
+                    @auth
                     <div class="row mt-4">
                         <div class="col-md-12">
                             <a href="{{ route('chapter.index', ['manga' => $manga]) }}" class="btn create-button">Go to chapters</a>
                         </div>
                     </div>
+                    @endauth
 {{--                    --}}
                 </div>
             </div>
@@ -79,6 +81,7 @@
         </div>
     </div>
 
+    @auth
     <div class="row d-flex justify-content-start mt-3 manga-header-info">
         <div class="container my-3">
             <div class="row py-4">
@@ -119,7 +122,7 @@
             </div>
         </div>
     </div>
-
+    @endauth
 
 </div>
 </x-layouts.navbar>
