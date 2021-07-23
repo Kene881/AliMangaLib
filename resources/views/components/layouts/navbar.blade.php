@@ -20,7 +20,9 @@
     <div class="row navbar-container" style="text-align: center">
 
         <div class="col-md-4 d-flex justify-content-center">
-            <img src="https://mangalib.me/images/manga.png?435">
+            <a href="/">
+                <img src="https://mangalib.me/images/manga.png?435">
+            </a>
         </div>
 
         <div class="col-md-1 d-flex justify-content-center">
@@ -36,9 +38,7 @@
                 </button>
             </div>
 
-            <div class="col-md-3">
-                <div></div>
-            </div>
+
 
             <div class="col-md-auto d-flex justify-content-center">
                 <button class="navbar-button-img">
@@ -48,7 +48,9 @@
                 </button>
             </div>
         @endif
-
+        <div class="col-md-3">
+            <div></div>
+        </div>
         @auth
             <div class="col-md-auto d-flex justify-content-center">
                 <button class="navbar-button-img">
