@@ -11,16 +11,6 @@ $manga = $manga ?? null;
                 <div class="col-md-12 manga-header">Manga Creation</div>
             </div>
 
-            <div class="row d-flex justify-content-start mt-3 manga-rules">
-                <div class="row">
-                    <div class="col-md-12">
-                        <p>The manga will be rejected for the following reasons:</p>
-                        <p>- If the manga belongs to genres that are not suitable for the site: hentai, bar, shootakon;</p>
-                        <p>- If these are doujinshi / singles that have the genre: yaoi / yuri / erotica (that is, hentai genre manga); </p>
-                    </div>
-                </div>
-            </div>
-
             <div class="row mt-2">
                 <span>Manga's cover</span>
             </div>

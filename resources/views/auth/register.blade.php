@@ -37,9 +37,11 @@
             </div>
 
             <div class="d-flex align-items-center justify-content-end">
-                <button class="btn btn-primary">
-                    {{ __('Register') }}
-                </button>
+                <div class="col-md-3">
+                    <button class="btn create-button">
+                        {{ __('Register') }}
+                    </button>
+                </div>
             </div>
         </form>
 </x-layouts.auth>

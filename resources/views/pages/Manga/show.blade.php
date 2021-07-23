@@ -73,6 +73,12 @@
                             <a href="{{ route('chapter.index', ['manga' => $manga]) }}" class="btn create-button">Go to chapters</a>
                         </div>
                     </div>
+                    @else
+                        <div class="row mt-4">
+                            <div class="col-md-12 text-center">
+                                <h1 class="text-danger">Please register to read</h1>
+                            </div>
+                        </div>
                     @endauth
 {{--                    --}}
                 </div>

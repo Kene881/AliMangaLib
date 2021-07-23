@@ -18,11 +18,11 @@
 
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <a href="{{ route('genre.edit', $genre) }}" class="btn btn-success">{{ __('EDIT') }}</a>
+                                        <a href="{{ route('genre.edit', $genre) }}" class="btn create-button">{{ __('EDIT') }}</a>
                                     </div>
 
                                     <div class="col-md-6">
-                                        <button class="btn btn-danger">
+                                        <button class="btn cancel-button">
                                             {{ __('DELETE') }}
                                         </button>
                                     </div>

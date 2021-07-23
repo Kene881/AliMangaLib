@@ -9,12 +9,10 @@
                 <img src="{{ \Storage::url($user->avatar_path) }}"
                      alt="profile_pic" class="img-fluid rounded"
                      style="max-height: 200px;">
-                @can('delete', $user)
                 <form action="{{ route('users.deleteImage', $user) }}" method="post">
                     @csrf @method('delete')
                     <button class="btn btn-danger">{{ __('Delete avatar image') }}</button>
                 </form>
-                @endcan
             @else
                 <img class="img-fluid rounded"
                      src="{{ Storage::url('users/default_img/no_avatar.png') }}"
