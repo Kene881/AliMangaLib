@@ -28,6 +28,11 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
 
+            Route::middleware(['web', 'role:admin'])
+                ->prefix('admin')
+                ->name('news.')
+                ->group(base_path('routes/adminNews.php'));
+
             Route::middleware('web')
                 ->prefix('news')
                 ->name('news.')
@@ -37,7 +42,6 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/forum.php'));
 
-            
             Route::middleware('web')
                 ->group(base_path('routes/manga.php'));
         });
