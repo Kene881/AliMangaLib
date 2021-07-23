@@ -25,7 +25,7 @@ Route::get('/', function () {
 
 # Profile pages
 Route::resource('users', UserController::class)
-    ->middleware(['auth', 'verified'])
+    ->middleware(['auth', 'verified', 'user.editable'])
     ->only('edit', 'update');
 
 Route::resource('users', UserController::class)
