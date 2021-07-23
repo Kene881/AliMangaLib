@@ -1,5 +1,7 @@
 <x-layouts.auth :title="__('Login')">
-
+    <div class="text-center">
+        <h3>Login</h3>
+    </div>
 
     <form action="{{ route('login') }}" method="post">
         @csrf

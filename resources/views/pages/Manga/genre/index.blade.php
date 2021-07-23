@@ -1,4 +1,4 @@
-<x-layouts.app title="{{ __('List Genre') }}">
+<x-layouts.navbar title="{{ __('List Genre') }}">
 
     <a href="{{ route('genre.create') }}">{{ __('Add new genre') }}</a>
 
@@ -8,7 +8,18 @@
         </div>
     @else
         @foreach($genres as $genre)
-            <div><a href="{{ route('genre.show', $genre) }}">{{ $genre->name }}</a></div>
+            <div>
+               {{ $genre->name }}
+                <div>
+                    <a href="{{ route('genre.edit', $genre) }}" class="btn btn-success">{{ __('EDIT') }}</a>
+                    <form action="{{ route('genre.destroy', $genre) }}" method="post">
+                        @csrf @method('delete')
+                        <button class="btn btn-danger">
+                            {{ __('DELETE') }}
+                        </button>
+                    </form>
+                </div>
+            </div>
         @endforeach
     @endif
-</x-layouts.app>
+</x-layouts.navbar>

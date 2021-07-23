@@ -1,4 +1,7 @@
 <x-layouts.auth :title="__('Register')">
+    <div class="text-center">
+        <h3>Register</h3>
+    </div>
         <form action="{{ route('register') }}" method="post">
             @csrf
 
@@ -30,7 +33,7 @@
             </div>
 
             <div class="mb-3">
-                <input class="input-style mt-3 " type="password" id="password_confirmation" name="password_confirmation" />
+                <input placeholder="repeat password" class="input-style mt-3 " type="password" id="password_confirmation" name="password_confirmation" />
             </div>
 
             <div class="d-flex align-items-center justify-content-end">

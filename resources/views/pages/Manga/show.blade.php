@@ -45,6 +45,8 @@
                         </div>
                     </div>
 {{--                    --}}
+
+                    @if (Auth::check() && auth()->user()->hasRole('admin'))
                     <div>
                         <form action="{{ route('manga.destroy', $manga) }}" method="post">
                             @csrf @method('delete')
@@ -63,7 +65,7 @@
 
                         </form>
                     </div>
-
+                    @endif
 
                     <div class="row mt-4">
                         <div class="col-md-12">

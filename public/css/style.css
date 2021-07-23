@@ -58,9 +58,17 @@ body
 
 }
 
+.navbar-button a {
+    color: white;
+}
+
 .navbar-button:hover {
     background-color: #e89c2c;
     -webkit-transition: background-color 0.5s;
+}
+
+.navbar-button a:hover {
+    color: white;
 }
 
 .navbar-button-img {
