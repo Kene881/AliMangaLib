@@ -9,11 +9,13 @@
                 </div>
             </div>
 
+            @if (Auth::check() && auth()->user()->hasRole('admin'))
             <div class="row mt-4">
                 <div class="col-md-12">
                     <a class="btn create-button" href="{{ route('chapter.create', $manga) }}">Add chapters</a>
                 </div>
             </div>
+            @endif
 
             <div class="row mt-4">
                 <div class="col-md-4">
