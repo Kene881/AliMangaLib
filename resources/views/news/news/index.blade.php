@@ -17,13 +17,17 @@
                 </div>
             </div>
         </div>
-        <div class="container" style="width: 35.5%;">
-            <div class="row mt-4">
-                <div class="col-md-12">
-                    <a class="cancel-button btn" href="{{ route('news.news.create') }}">{{ __('Create') }}</a>
+
+        @if (Auth::check() && auth()->user()->hasRole('admin'))
+            <div class="container" style="width: 35.5%;">
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        <a class="cancel-button btn" href="{{ route('news.news.create') }}">{{ __('Create') }}</a>
+                    </div>
                 </div>
             </div>
-        </div>
+        @endif
+
         {{--News and icon--}}
 
         @if(!$news->isEmpty())
@@ -40,7 +44,7 @@
                         </div>
 
                         <div class="row mt-2" style="letter-spacing: 2px;">
-                            <a href="{{ route('news.news.show', $one_news) }}" class="h5">{{$one_news->title}}</a>
+                                <a href="{{ route('news.news.show', $one_news) }}" class="h5">{{$one_news->title}}</a>
                         </div>
                     </div>
                 </div>

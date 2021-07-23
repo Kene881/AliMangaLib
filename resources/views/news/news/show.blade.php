@@ -36,24 +36,26 @@
                     <span>{{ $news->description }}</span>
                 </div>
             </div>
-            <form action="{{ route('news.news.destroy', $news) }}" method="post">
-                @csrf @method('delete')
-                <div class="row mt-4">
-                    <div class="col-md-12">
-                        <a class="cancel-button btn" href="{{ route('news.news.edit', $news) }}">{{__('Update')}}</a>
+            @if (Auth::check() && auth()->user()->hasRole('admin'))
+                <form action="{{ route('news.news.destroy', $news) }}" method="post">
+                    @csrf @method('delete')
+                    <div class="row mt-4">
+                        <div class="col-md-12">
+                            <a class="cancel-button btn" href="{{ route('news.news.edit', $news) }}">{{__('Update')}}</a>
+                        </div>
                     </div>
-                </div>
-                <div class="row mt-4">
-                    <div class="col-md-12">
-                        <button class="cancel-button btn">{{__('Delete')}}</button>
+                    <div class="row mt-4">
+                        <div class="col-md-12">
+                            <button class="cancel-button btn">{{__('Delete')}}</button>
+                        </div>
                     </div>
+                </form>
+            @endif
+            <div class="row mt-4">
+                <div class="col-md-12">
+                    <a class="cancel-button btn" href="{{ route('news.news.index') }}">{{__('Back')}}</a>
                 </div>
-                <div class="row mt-4">
-                    <div class="col-md-12">
-                        <a class="cancel-button btn" href="{{ route('news.news.index') }}">{{__('Back')}}</a>
-                    </div>
-                </div>
-            </form>
+            </div>
         </div>
         {{--    </div>--}}
 
