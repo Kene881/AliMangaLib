@@ -30,12 +30,22 @@
                 <a href="{{ route('manga.index') }}">Catalog</a>
             </button>
         </div>
+        <div class="col-md-1 d-flex justify-content-center">
+            <button class="navbar-button">
+                <a href="{{ route('news.news.index') }}">News</a>
+            </button>
+        </div>
+
 
         @if (Auth::check() && auth()->user()->hasRole('admin'))
             <div class="col-md-1 d-flex justify-content-center">
                 <button class="navbar-button">
                     <a href="{{ route('genre.index') }}">Genre</a>
                 </button>
+            </div>
+
+            <div class="col-md-3">
+                <div></div>
             </div>
 
             <div class="col-md-auto d-flex justify-content-center">
@@ -45,17 +55,11 @@
                     </a>
                 </button>
             </div>
+        @else
+            <div class="col-md-3">
+                <div></div>
+            </div>
         @endif
-
-        <div class="col-md-1 d-flex justify-content-center">
-            <button class="navbar-button">
-                <a href="{{ route('news.news.index') }}">News</a>
-            </button>
-        </div>
-
-        <div class="col-md-3">
-            <div></div>
-        </div>
 
         @auth
             <div class="col-md-auto d-flex justify-content-center">
@@ -70,6 +74,9 @@
                 </button>
             </div>
         @else
+{{--            <div class="col-md-3">--}}
+{{--                <div></div>--}}
+{{--            </div>--}}
             <div class="col-md-1 d-flex justify-content-center">
                 <button class="navbar-button">
                     <a href="{{ route('register') }}">Register</a>
