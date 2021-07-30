@@ -30,7 +30,11 @@
                                     <p class="text-muted">Genre</p>
                                 </div>
                                 <div class="col-md-9">
-                                    <p class="card-text">{{ $manga->genre->name }}</p>
+                                    @if (!$manga->genre)
+                                        <p class="card-text">None</p>
+                                    @else
+                                        <p class="card-text">{{ $manga->genre->name }}</p>
+                                    @endif
                                 </div>
                             </div>
 
